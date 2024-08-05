@@ -1,0 +1,342 @@
+/* styles.css */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-image: url('https://img.freepik.com/premium-photo/purple-laptop-is-desk-with-purple-light_1221953-14022.jpg?size=626&ext=jpg&uid=R81552586&ga=GA1.1.644014882.1722719914&semt=ais_hybrid');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.dark-theme {
+    background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+    color: #f0f0f0;
+}
+
+.container {
+    background: linear-gradient(to right, rgb(101 66 193), rgb(13 110 253 / 58%));
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    animation-duration: 1s;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+#text {
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    outline: 2px solid rgba(120, 120, 120, 0.623);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#text:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    transform: scale(1.02);
+}
+
+label {
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+label:hover {
+    color: #007bff;
+}
+
+button {
+    border-radius: .5rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#speak {
+    background-color: #007bff;
+}
+
+#pause {
+    background-color: #ffc107;
+}
+
+#resume {
+    background-color: #28a745;
+}
+
+#stop {
+    background-color: #dc3545;
+}
+
+#download {
+    background-color: #17a2b8;
+}
+
+/* Custom styles for range inputs */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: black;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 10px;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: auto; /* Push the footer to the bottom */
+    background-color: #343a40; /* Dark footer */
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme .container {
+    background: linear-gradient(to right, #222, #444);
+}
+
+body.dark-theme #text {
+    background-color: #333;
+    color: #e0e0e0;
+    outline: 2px solid rgba(200, 200, 200, 0.5);
+}
+
+body.dark-theme label {
+    color: #e0e0e0;
+}
+
+body.dark-theme button {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-theme button:hover {
+    background-color: #555;
+}
+
+body.dark-theme #speak {
+    background-color: #1e88e5;
+}
+
+body.dark-theme #pause {
+    background-color: #fbc02d;
+}
+
+body.dark-theme #resume {
+    background-color: #43a047;
+}
+
+body.dark-theme #stop {
+    background-color: #e53935;
+}
+
+body.dark-theme #download {
+    background-color: #039be5;
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}
+
+/* Tooltip Styles */
+button[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+button[title]::after {
+    content: attr(title);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+button[title]:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+ /* Floating Chatbot Button */
+#chatbotButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#chatbotButton:hover {
+    transform: scale(1.1);
+}
+
+/* Chatbox */
+#chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#chatbox.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#chatbox.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Chatbox Header */
+#chatboxHeader {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Chatbox Messages */
+#chatboxMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Chatbox Input */
+#chatboxInput {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 0 0 15px 15px;
+}
+
+#chatboxInput input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+#chatboxInput input:focus {
+    border-color: #007bff;
+}
+
+#chatboxInput button {
+    margin-left: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#chatboxInput button:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    #chatbox {
+        width: 90%;
+        right: 5%;
+        bottom: 100px;
+    }
+
+    #chatbotButton {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
